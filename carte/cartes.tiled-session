@@ -1,0 +1,72 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "principal.tmx",
+    "expandedProjectPaths": [
+    ],
+    "file.lastUsedOpenFilter": "Tous les Fichiers (*)",
+    "fileStates": {
+        "Door1_pipo.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "[A]Dirt_pipo.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "[A]Grass_pipo.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "[A]Wall-Up_pipo.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 2
+        },
+        "[A]Water_pipo.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "[Base]BaseChip_pipo.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "addwork.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "principal.tmx": {
+            "scale": 2,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 9388,
+                "y": 7880.25
+            }
+        }
+    },
+    "last.imagePath": "C:/Users/amich/OneDrive/Bureau/Tower of the Arcane Realms/v1/assets/utilitaire/carte",
+    "map.height": 500,
+    "map.lastUsedFormat": "tmx",
+    "map.width": 500,
+    "openFiles": [
+        "principal.tmx",
+        "addwork.tsx",
+        "[Base]BaseChip_pipo.tsx",
+        "[A]Grass_pipo.tsx"
+    ],
+    "project": "cartes.tiled-project",
+    "recentFiles": [
+        "[A]Grass_pipo.tsx",
+        "[Base]BaseChip_pipo.tsx",
+        "addwork.tsx",
+        "principal.tmx",
+        "[A]Dirt_pipo.tsx",
+        "Door1_pipo.tsx",
+        "[A]Wall-Up_pipo.tsx",
+        "[A]Water_pipo.tsx"
+    ],
+    "tileset.lastUsedFormat": "tsx",
+    "tileset.transparentColor": "#000000",
+    "tileset.useTransparentColor": true
+}
