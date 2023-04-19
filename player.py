@@ -1,15 +1,27 @@
 import pygame 
+import animation
 
 class Player(pygame.sprite.Sprite):
     def __init__(self, x, y ) :
         super().__init__()
-        self.sprite_sheet = pygame.image.load('sprites/test2.png')
+        self.sprite_sheet = pygame.image.load('sprites/player.png')
         self.image = self.get_image(0, 0)
         self.image.set_colorkey([0, 0, 0])
         self.rect = self.image.get_rect()
         self.position = [x, y]
         self.vie = 100
         self.speed = 3
+        self.images = {
+            'down' : self.get_image(0, 0),
+            'left' : self.get_image(0, 120), 
+            'right' : self.get_image(0, 240), 
+            'up' : self.get_image(0, 360)
+        }
+
+
+    def change_animation(self, name):
+        self.image = self.image[name]
+        self.image.set_colorkey([0, 0, 0])
 
     def move_right(self):
         self.position[0] += self.speed
