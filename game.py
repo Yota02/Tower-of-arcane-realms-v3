@@ -25,6 +25,11 @@ class Game:
         self.background = 4
         self.pressed = {}   
 
+        self.walls = []
+        for obj in tmx_data.objects:
+            if obj.type == 'colision':
+                self.walls.append(pygame.Rect(obj.x, obj.y, obj.width, obj.height))
+
     def handle_input(self):
         pressed = pygame.key.get_pressed()
         if pressed[pygame.K_LEFT]:
@@ -40,6 +45,11 @@ class Game:
             self.player.move_right()
             self.player.change_animation('left')
 
+    def update(self):
+        self.group.update()
+        for sprite in self.group.sprites():
+            if sprite.feet.collidelist(self.walls) > -1:
+                sprite.move_back()
 
     def run(self):
 
@@ -48,8 +58,10 @@ class Game:
         running = True 
 
         while running:
+
+            self.player.save_location()
             self.handle_input()
-            self.group.update()
+            self.update()
             self.group.center(self.player.rect)
             self.group.draw(self.screen)
             pygame.display.flip()
