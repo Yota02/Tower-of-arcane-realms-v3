@@ -3,6 +3,7 @@ import pytmx
 from pytmx.util_pygame import load_pygame
 import pyscroll
 from player import Player
+import json
 
 class Game: 
 
@@ -50,6 +51,21 @@ class Game:
         for sprite in self.group.sprites():
             if sprite.feet.collidelist(self.walls) > -1:
                 sprite.move_back()
+                
+    def data_entry_fonction():
+        with open('Game_Data.json', '+r') as file:
+            data = json.load(file)
+
+        nb_start = data['nb_start']
+        print(nb_start)
+
+        file.close()
+
+    def data_exit_fonction():
+        with open('Game_Data.json', 'r+') as file:
+            data = json.load(file)
+            print(data)
+
 
     def run(self):
 

@@ -10,7 +10,7 @@ class Player(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.position = [x, y]
         self.speed = 3
-        self.feet  = (0, 0, self.rect.width * 0.5, 12)
+        self.feet  = pygame.Rect(0, 0, self.rect.width * 0.5, 12)
         self.old_position = self.position.copy()
         self.images = {
             'down' : self.get_image(0, 0),
@@ -41,12 +41,12 @@ class Player(pygame.sprite.Sprite):
 
     def update(self ):
         self.rect.topleft = self.position
-        self.feet.mitbottom = self.rect.midbottom
+        self.feet.midbottom = self.rect.midbottom
 
     def move_back(self):
         self.position = self.old_position
         self.rect.topleft = self.position
-        self.feet.mitbottom = self.rect.midbottom
+        self.feet.midbottom = self.rect.midbottom
     
     def get_image(self, x, y):
         image = pygame.Surface([60, 120])
