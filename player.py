@@ -14,9 +14,9 @@ class Player(pygame.sprite.Sprite):
         self.old_position = self.position.copy()
         self.images = {
             'down' : self.get_image(0, 0),
-            'left' : self.get_image(0, 120), 
-            'right' : self.get_image(0, 240), 
-            'up' : self.get_image(0, 384)
+            'left' : self.get_image(0, 50), 
+            'right' : self.get_image(0, 64), 
+            'up' : self.get_image(0, 96)
         }
         
     def save_location(self):

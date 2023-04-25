@@ -51,7 +51,8 @@ class Game:
         for sprite in self.group.sprites():
             if sprite.feet.collidelist(self.walls) > -1:
                 sprite.move_back()
-                
+
+
     def data_entry_fonction():
         with open('Game_Data.json', '+r') as file:
             data = json.load(file)
@@ -64,7 +65,10 @@ class Game:
     def data_exit_fonction():
         with open('Game_Data.json', 'r+') as file:
             data = json.load(file)
-            print(data)
+            print(data)          
+
+
+
 
 
     def run(self):
