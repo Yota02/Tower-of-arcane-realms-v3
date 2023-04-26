@@ -52,3 +52,7 @@ class Player(pygame.sprite.Sprite):
         image.blit(self.sprite_sheet, (0, 0), (x, y , 60, 120))
 
         return image
+    
+    def caracteristique():
+        with open('data', 'w+') as file:
+            pass
