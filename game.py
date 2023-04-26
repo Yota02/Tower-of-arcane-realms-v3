@@ -3,6 +3,7 @@ import pytmx
 from pytmx.util_pygame import load_pygame
 import pyscroll
 from player import Player
+from song import Songmanager
 import json
 
 class Game: 
@@ -19,11 +20,13 @@ class Game:
         player_position = tmx_data.get_object_by_name("spawn")
         self.group = pyscroll.PyscrollGroup(map_layer=map_layer, default_layer=3)
         
+        self.sound_manager = Songmanager()
+
         self.player = Player(player_position.x, player_position.y)
         self.group.add(self.player)
 
         self.is_playing = True
-        self.background = 4
+        self.background = 0
         self.pressed = {}   
 
         self.walls = []
@@ -53,22 +56,6 @@ class Game:
                 sprite.move_back()
 
 
-    def data_entry_fonction():
-        with open('Game_Data.json', '+r') as file:
-            data = json.load(file)
-
-        nb_start = data['nb_start']
-        print(nb_start)
-
-        file.close()
-
-    def data_exit_fonction():
-        with open('Game_Data.json', 'r+') as file:
-            data = json.load(file)
-            print(data)          
-
-
-
 
 
     def run(self):
@@ -85,6 +72,10 @@ class Game:
             self.group.center(self.player.rect)
             self.group.draw(self.screen)
             pygame.display.flip()
+
+            if self.background == 0:
+                self.sound_manager.play('Hub')
+
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     running = False
