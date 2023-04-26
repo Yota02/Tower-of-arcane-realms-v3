@@ -62,7 +62,6 @@ class Player(pygame.sprite.Sprite):
     def get_image(self, x, y):
         image = pygame.Surface([60, 120])
         image.blit(self.sprite_sheet, (0, 0), (x, y , 60, 120))
-
         return image
 
     def caracteristique(self):
@@ -82,3 +81,5 @@ class Player(pygame.sprite.Sprite):
             json.dump(character, file)
             file.close()
         
+
+    
