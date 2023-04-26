@@ -10,7 +10,6 @@ class Player(pygame.sprite.Sprite):
         self.image.set_colorkey([0, 0, 0])
         self.rect = self.image.get_rect()
         self.position = [x, y]
-        self.speed = 3
         self.feet  = pygame.Rect(0, 0, self.rect.width * 0.5, 12)
         self.old_position = self.position.copy()
         self.images = {
@@ -19,6 +18,18 @@ class Player(pygame.sprite.Sprite):
             'right' : self.get_image(0, 64), 
             'up' : self.get_image(0, 96)
         }
+
+
+        self.speed = 3
+        self.lvl = 0
+        self.hp = 0 
+        self.attack = 1
+        self.resistance = 0 
+        self.mp = 100
+        self.skill = []
+        self.inventaire = []
+
+
         
     def save_location(self):
         self.old_position = self.position.copy()
@@ -54,20 +65,19 @@ class Player(pygame.sprite.Sprite):
 
         return image
 
-    def caracteristique():
-        global lvl, hp, mp, speed, dps, resistance, skill, inventaire
-        with open('data_game/data_character.json', 'w') as file:
+    def caracteristique(self):
+        with open('data_gama/data_character.json', 'w') as file:
             character = {
-                'lvl': lvl,
+                'lvl': self.lvl,
                 'stat': {
-                    'hp': hp,
-                    'mp': mp,
-                    'speed': speed,
-                    'dps': dps,
-                    'resistance': resistance
+                    'hp': self.hp,
+                    'mp': self.mp,
+                    'speed': self.speed,
+                    'attack': self.attack,
+                    'resistance': self.resistance
                 },
-                'skill': skill,
-                'inventaire': inventaire                        
+                'skill': self.skill,
+                'inventaire': self.inventaire                        
             }
             json.dump(character, file)
             file.close()
