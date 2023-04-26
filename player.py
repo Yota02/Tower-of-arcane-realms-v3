@@ -53,6 +53,8 @@ class Player(pygame.sprite.Sprite):
 
         return image
     
+#coucou
+
     def caracteristique():
         with open('data', 'w+') as file:
             pass
