@@ -1,5 +1,6 @@
 import pygame 
 import animation
+import json
 
 class Player(pygame.sprite.Sprite):
     def __init__(self, x, y ) :
@@ -52,9 +53,22 @@ class Player(pygame.sprite.Sprite):
         image.blit(self.sprite_sheet, (0, 0), (x, y , 60, 120))
 
         return image
-    
-#coucou
 
     def caracteristique():
-        with open('data', 'w+') as file:
-            pass
+        global lvl, hp, mp, speed, dps, resistance, skill, inventaire
+        with open('data_game/data_character.json', 'w') as file:
+            character = {
+                'lvl': lvl,
+                'stat': {
+                    'hp': hp,
+                    'mp': mp,
+                    'speed': speed,
+                    'dps': dps,
+                    'resistance': resistance
+                },
+                'skill': skill,
+                'inventaire': inventaire                        
+            }
+            json.dump(character, file)
+            file.close()
+        
