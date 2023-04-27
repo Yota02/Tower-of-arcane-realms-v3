@@ -80,6 +80,3 @@ class Player(pygame.sprite.Sprite):
             }
             json.dump(character, file)
             file.close()
-        
-
-    
