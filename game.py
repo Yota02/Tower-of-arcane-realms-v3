@@ -32,7 +32,7 @@ class Game:
 
     # Variables de jeu
         self.is_playing = True
-        self.background = 0
+        self.background = 1
         self.pressed = {}
 
     # Création d'une liste de murs à partir des objets de la carte Tiled
