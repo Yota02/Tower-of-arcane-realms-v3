@@ -1,18 +1,24 @@
 import pygame  
+import random
 
 
 class Monster(pygame.sprite.Sprite):  # définir une classe Monster qui hérite de la classe Sprite de pygame
     
     def __init__(self, health, attack, speed, resistance, porté, image):
         super().__init__()  # initialiser la classe Sprite parente
+        # stat du monstre
         self.health = health  # attribuer les points de vie du monstre
         self.attack = attack  # attribuer la force d'attaque du monstre
         self.speed = speed  # attribuer la vitesse de déplacement du monstre
         self.resistance = resistance  # attribuer la résistance du monstre
         self.porté = porté  # attribuer la portée d'attaque du monstre
+        # visuelle du monstre
         self.image = pygame.image.load(image)  # charger l'image du monstre
         self.image.rect = self.image.get_rect()  # obtenir le rectangle englobant de l'image
 
+    def monster_move(self):
+        pass
+        
 # création de monstres
 
 # 1er étage
