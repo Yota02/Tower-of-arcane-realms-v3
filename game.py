@@ -4,6 +4,8 @@ from pytmx.util_pygame import load_pygame
 import pyscroll
 from player import Player
 from song import Songmanager
+from item import Item
+from inventaire import Inventory
 import json
 
 class Game: 
@@ -25,6 +27,9 @@ class Game:
 
     # Gestion du son
         self.sound_manager = Songmanager()
+
+
+        inventory = Inventory()
 
     # Initialisation du joueur
         self.player = Player(player_position.x, player_position.y)
