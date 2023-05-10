@@ -14,24 +14,16 @@ class Player(pygame.sprite.Sprite):
         except pygame.error as e:
             print(f"Erreur lors du chargement de l'image du joueur : {e}")
 
-        # Récupération de la première image du joueur (orienté vers le bas)
-        self.image = self.get_image(0, 0)
+        self.image = self.get_image(0, 0) # Récupération de la première image du joueur (orienté vers le bas)
+        self.image.set_colorkey([0, 0, 0]) # Définition de la couleur à considérer comme transparente sur l'image
 
-        # Définition de la couleur à considérer comme transparente sur l'image
-        self.image.set_colorkey([0, 0, 0])
-
-        # Récupération des dimensions du joueur et de sa position
-        self.rect = self.image.get_rect()
+        self.rect = self.image.get_rect() # Récupération des dimensions du joueur et de sa position
         self.position = [x, y]
 
-        # Définition des dimensions des pieds du joueur et de leur position
-        self.feet  = pygame.Rect(0, 0, self.rect.width * 0.5, 12)
+        self.feet = pygame.Rect(0, 0, self.rect.width * 0.5, 12) # Définition des dimensions des pieds du joueur et de leur position
+        self.old_position = self.position.copy() # Sauvegarde de la position initiale du joueur
 
-        # Sauvegarde de la position initiale du joueur
-        self.old_position = self.position.copy()
-
-        # Création d'un dictionnaire contenant les différentes images du joueur selon sa direction
-        self.images = {
+        self.images = { # Création d'un dictionnaire contenant les différentes images du joueur selon sa direction
             'down' : self.get_image(17, 142),  # récupérer l'image du sprite orienté vers le bas
             'left' : self.get_image(17, 206),  # récupérer l'image du sprite orienté vers la gauche
             'right' : self.get_image(17, 78),  # récupérer l'image du sprite orienté vers la droite
@@ -49,8 +41,7 @@ class Player(pygame.sprite.Sprite):
         self.inventaire = []
         
     def save_location(self):
-        # Sauvegarde de la position actuelle du joueur
-        self.old_position = self.position.copy()
+        self.old_position = self.position.copy() # Sauvegarde de la position actuelle du joueur
 
     def change_animation(self, name):
         # Changement de l'image du joueur selon sa direction
@@ -77,7 +68,7 @@ class Player(pygame.sprite.Sprite):
         # Mise à jour de la position et des pieds du joueur
         self.rect.topleft = self.position
         self.feet.midbottom = self.rect.midbottom
-
+        
     def move_back(self):
         # Retour du joueur à sa position précédente
         self.position = self.old_position
@@ -90,6 +81,7 @@ class Player(pygame.sprite.Sprite):
         image.blit(self.sprite_sheet, (0, 0), (x, y , 30,48))
 
         return image
+    
     """    
     def caracteristique(self):
     # Enregistrer les caractéristiques du joueur dans un fichier JSON
