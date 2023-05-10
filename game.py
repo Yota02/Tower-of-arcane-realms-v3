@@ -2,6 +2,7 @@ import pygame
 import pytmx 
 from pytmx.util_pygame import load_pygame
 import pyscroll
+from dialogs import DialogBox
 from player import Player
 from song import Songmanager
 import json
@@ -41,6 +42,9 @@ class Game:
             if obj.type == 'colision':
                 self.walls.append(pygame.Rect(obj.x, obj.y, obj.width, obj.height))
 
+        self.dialog_box = DialogBox()
+
+
     def handle_input(self):
     # Gestion des entrées clavier
         pressed = pygame.key.get_pressed()
@@ -76,6 +80,7 @@ class Game:
             self.player.caracteristique()
             self.group.center(self.player.rect)
             self.group.draw(self.screen)
+            self.dialog_box.render(self.screen)
             pygame.display.flip()
 
         # Gestion du son en fonction du contexte
