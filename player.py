@@ -8,7 +8,11 @@ class Player(pygame.sprite.Sprite):
         super().__init__()
 
         # Chargement de l'image du joueur depuis un fichier
-        self.sprite_sheet = pygame.image.load('sprites/player.png')
+        super().__init__()
+        try:
+            self.sprite_sheet = pygame.image.load('sprites/player.png')
+        except pygame.error as e:
+            print(f"Erreur lors du chargement de l'image du joueur : {e}")
 
         # Récupération de la première image du joueur (orienté vers le bas)
         self.image = self.get_image(0, 0)
@@ -29,8 +33,8 @@ class Player(pygame.sprite.Sprite):
         # Création d'un dictionnaire contenant les différentes images du joueur selon sa direction
         self.images = {
             'down' : self.get_image(17, 142),  # récupérer l'image du sprite orienté vers le bas
-            'left' : self.get_image(17, 205),  # récupérer l'image du sprite orienté vers la gauche
-            'right' : self.get_image(17, 77),  # récupérer l'image du sprite orienté vers la droite
+            'left' : self.get_image(17, 206),  # récupérer l'image du sprite orienté vers la gauche
+            'right' : self.get_image(17, 78),  # récupérer l'image du sprite orienté vers la droite
             'up' : self.get_image(17, 14)  # récupérer l'animation du sprite orienté vers le haut
         }
 
@@ -86,23 +90,28 @@ class Player(pygame.sprite.Sprite):
         image.blit(self.sprite_sheet, (0, 0), (x, y , 30,48))
 
         return image
-    
+    """    
     def caracteristique(self):
     # Enregistrer les caractéristiques du joueur dans un fichier JSON
-        with open('data_gama/data_character.json', 'w') as file:
-        # Création d'un dictionnaire pour stocker les caractéristiques
-            character = {
-            'lvl': self.lvl,
-            'stat': {
-                'hp': self.hp,
-                'mp': self.mp,
-                'speed': self.speed,
-                'attack': self.attack,
-                'resistance': self.resistance
-            },
-            'skill': self.skill,
-            'inventaire': self.inventaire                        
-        }
-        # Écriture des caractéristiques dans le fichier JSON
+        try:
+            with open('data_gama/data_character.json', 'w') as file:
+                character = {
+                'lvl': self.lvl,
+                'stat': {
+                    'hp': self.hp,
+                    'mp': self.mp,
+                    'speed': self.speed,
+                    'attack': self.attack,
+                    'resistance': self.resistance
+                },
+                'skill': self.skill,
+                'inventaire': self.inventaire                        
+            }
             json.dump(character, file)
+        except FileNotFoundError:
+            print("Le fichier n'a pas été trouvé.")
+        except IOError:
+            print("Erreur d'entrée/sortie.")
+        else:
             file.close()
+            print("Les caractéristiques ont été enregistrées avec succès.")"""

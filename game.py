@@ -73,7 +73,7 @@ class Game:
             self.player.save_location()
             self.handle_input()
             self.update()
-            self.player.caracteristique()
+            #self.player.caracteristique()
             self.group.center(self.player.rect)
             self.group.draw(self.screen)
             pygame.display.flip()

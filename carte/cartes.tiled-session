@@ -3,7 +3,7 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "principal.tmx",
+    "activeFile": "test.tmx",
     "expandedProjectPaths": [
     ],
     "file.lastUsedOpenFilter": "Tous les Fichiers (*)",
@@ -43,6 +43,14 @@
                 "x": 9388,
                 "y": 7880.25
             }
+        },
+        "test.tmx": {
+            "scale": 0.03125,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 4512,
+                "y": 7344
+            }
         }
     },
     "last.imagePath": "C:/Users/amich/OneDrive/Bureau/Tower of the Arcane Realms/v1/assets/utilitaire/carte",
@@ -50,16 +58,17 @@
     "map.lastUsedFormat": "tmx",
     "map.width": 500,
     "openFiles": [
-        "principal.tmx",
         "addwork.tsx",
         "[Base]BaseChip_pipo.tsx",
-        "[A]Grass_pipo.tsx"
+        "[A]Grass_pipo.tsx",
+        "test.tmx"
     ],
     "project": "cartes.tiled-project",
     "recentFiles": [
-        "[A]Grass_pipo.tsx",
-        "[Base]BaseChip_pipo.tsx",
         "addwork.tsx",
+        "[Base]BaseChip_pipo.tsx",
+        "[A]Grass_pipo.tsx",
+        "test.tmx",
         "principal.tmx",
         "[A]Dirt_pipo.tsx",
         "Door1_pipo.tsx",
