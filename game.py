@@ -85,11 +85,20 @@ class Game:
 
         # Gestion du son en fonction du contexte
             if self.background == 0:
-                self.sound_manager.play('Hub')
+                self.sound_manager.play('Hub')            
 
         # Gestion des événements Pygame
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     running = False
+                # mouvement du joueur
+                if event.type == pygame.K_q:
+                    self.player.move_right()
+                if event.type == pygame.K_d:
+                    self.player.move_left()
+                if event.type == pygame.K_z:
+                    self.player.move_up()
+                if event.type == pygame.K_s:
+                    self.player.move_down()       
 
             clock.tick(60)
