@@ -17,7 +17,6 @@ class DialogBox:
         self.text_lines = []
 
     def wrap_text(self, text, font, box_width):
-        """Wrap text to fit inside a given width when rendered using a given font."""
         lines = []
         line = ""
         for word in text.split():
@@ -52,12 +51,12 @@ class DialogBox:
                 if not self.text_lines:
                     self.text_lines = self.wrap_text(self.texts[self.text_index], self.font, box_width - 20)
 
-                text_y = y + 20
+                text_y = y + 20 + ((box_height - len(self.text_lines) * (self.font.get_height() + self.line_spacing))) // 2
                 for i in range(len(self.text_lines)):
                     line = self.text_lines[i][0:self.current_chars]
                     text_surface = self.font.render(line, False, (0, 0, 0))
                     text_rect = text_surface.get_rect()
-                    text_rect.centerx = self.box.get_rect().centerx
+                    text_rect.centerx = self.box.get_rect().centerx + x
                     text_rect.top = text_y
                     screen.blit(text_surface, text_rect)
                     text_y += self.font.get_height() + self.line_spacing
