@@ -60,6 +60,8 @@ class Game:
         elif pressed[pygame.K_RIGHT]:
             self.player.move_right()
             self.player.change_animation('left')
+        elif pressed[pygame.K_SPACE] and self.dialog_box.reading:
+            self.dialog_box.next_text()
 
     def update(self):
     # Mise à jour du groupe Pyscroll et détection de collision avec les murs
@@ -91,5 +93,6 @@ class Game:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     running = False
+                        
 
             clock.tick(60)
