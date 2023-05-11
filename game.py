@@ -21,6 +21,8 @@ class Game:
         map_layer = pyscroll.orthographic.BufferedRenderer(map_data, self.screen.get_size())
         map_layer.zoom = 2
 
+        
+
     # Positionnement du joueur et du groupe Pyscroll
         player_position = tmx_data.get_object_by_name("spawn")
         self.group = pyscroll.PyscrollGroup(map_layer=map_layer, default_layer=3)
@@ -43,7 +45,7 @@ class Game:
     # Création d'une liste de murs à partir des objets de la carte Tiled
         self.walls = []
         for obj in tmx_data.objects:
-            if obj.type == 'colision':
+            if obj.type == 'collision':
                 self.walls.append(pygame.Rect(obj.x, obj.y, obj.width, obj.height))
 
     def handle_input(self):
