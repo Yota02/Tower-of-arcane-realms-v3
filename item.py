@@ -13,7 +13,7 @@ class Potion(Item):
     def __init__(self, name, description, effet):
         super().__init__(name, description)
         self.effet = effet
-
+    
 epee_acier = Weapon("Épée en acier", "Une épée forgée en acier", 10, 500)
 epee_dragon = Weapon("Épée du dragon", "Une épée légendaire forgée dans le feu des dragon", 15, 2000)
 epee_des_ombre = Weapon("Épée des ombre", "Une épée noire forgée dans les ténèbres", 18, 1200)
