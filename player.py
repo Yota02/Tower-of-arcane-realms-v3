@@ -23,22 +23,10 @@ class Player(pygame.sprite.Sprite):
         # Récupération des dimensions du joueur et de sa position
         self.rect = self.image.get_rect()
         self.position = [x, y]
-
-        # Définition des dimensions des pieds du joueur et de leur position
-        self.feet  = pygame.Rect(0, 0, self.rect.width * 0.5, 12)
-
-        # Sauvegarde de la position initiale du joueur
+        self.feet = pygame.Rect(0, 0, self.rect.width * 0.5, 12)
         self.old_position = self.position.copy()
-
-        # Création d'un dictionnaire contenant les différentes images du joueur selon sa direction
-        self.images = {
-            'down' : self.get_image(17, 142),  # récupérer l'image du sprite orienté vers le bas
-            'left' : self.get_image(17, 206),  # récupérer l'image du sprite orienté vers la gauche
-            'right' : self.get_image(17, 78),  # récupérer l'image du sprite orienté vers la droite
-            'up' : self.get_image(17, 14)  # récupérer l'animation du sprite orienté vers le haut
-        }
-
-        # Définition des caractéristiques de base du joueur
+        
+        # Configuration des caractéristiques du joueur
         self.speed = 3
         self.lvl = 0
         self.hp = 0 
@@ -52,11 +40,7 @@ class Player(pygame.sprite.Sprite):
         # Sauvegarde de la position actuelle du joueur
         self.old_position = self.position.copy()
 
-    def change_animation(self, name):
-        # Changement de l'image du joueur selon sa direction
-        self.image = self.images[name]
-        self.image.set_colorkey([0, 0, 0])
-
+    # Déplacement du joueur vers la droite
     def move_right(self):
         # Déplacement du joueur vers la droite
         self.position[0] += self.speed
@@ -73,8 +57,8 @@ class Player(pygame.sprite.Sprite):
         # Déplacement du joueur vers le bas
         self.position[1] += self.speed
 
-    def update(self ):
-        # Mise à jour de la position et des pieds du joueur
+    # Mise à jour de la position du joueur
+    def update(self):
         self.rect.topleft = self.position
         self.feet.midbottom = self.rect.midbottom
 
@@ -83,14 +67,8 @@ class Player(pygame.sprite.Sprite):
         self.position = self.old_position
         self.rect.topleft = self.position
         self.feet.midbottom = self.rect.midbottom
-    
-    def get_image(self, x, y):
-        # Récupérer une image à partir de la feuille de sprites
-        image = pygame.Surface([30,48])
-        image.blit(self.sprite_sheet, (0, 0), (x, y , 30,48))
 
-        return image
-    """    
+    # Sauvegarde des caractéristiques du joueur
     def caracteristique(self):
     # Enregistrer les caractéristiques du joueur dans un fichier JSON
         try:
@@ -114,4 +92,3 @@ class Player(pygame.sprite.Sprite):
             print("Erreur d'entrée/sortie.")
         else:
             file.close()
-            print("Les caractéristiques ont été enregistrées avec succès.")"""
