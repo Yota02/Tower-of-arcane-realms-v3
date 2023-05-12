@@ -80,6 +80,7 @@ class Player(pygame.sprite.Sprite):
         image.blit(self.sprite_sheet, (0, 0), (x, y , 30,48))
 
         return image
+    
     def caracteristique(self):
         with open('data_gama/data_character.json', 'w') as file:
             character = {

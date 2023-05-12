@@ -1,48 +1,36 @@
 {
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
     "activeFile": "test.tmx",
+    "expandedProjectPaths": [
+    ],
     "fileStates": {
-        "C:/Users/amich/AppData/Local/Temp/Temp1_Pipoya RPG Tileset 32x32.zip/Pipoya RPG Tileset 32x32/SampleMap/[A]Flower_pipo.tsx": {
-            "scaleInDock": 1
-        },
-        "C:/Users/amich/AppData/Local/Temp/Temp1_Pipoya RPG Tileset 32x32.zip/Pipoya RPG Tileset 32x32/SampleMap/[A]Grass_pipo.tsx": {
-            "scaleInDock": 1
-        },
-        "C:/Users/amich/AppData/Local/Temp/Temp1_Pipoya RPG Tileset 32x32.zip/Pipoya RPG Tileset 32x32/SampleMap/[A]WaterFall_pipo.tsx": {
-            "scaleInDock": 1
-        },
-        "C:/Users/amich/AppData/Local/Temp/Temp1_Pipoya RPG Tileset 32x32.zip/Pipoya RPG Tileset 32x32/SampleMap/[A]Water_pipo.tsx": {
-            "scaleInDock": 1
-        },
-        "C:/Users/amich/AppData/Local/Temp/Temp1_Pipoya RPG Tileset 32x32.zip/Pipoya RPG Tileset 32x32/SampleMap/samplemap.tmx": {
-            "scale": 0.125,
-            "selectedLayer": 0,
-            "viewCenter": {
-                "x": 208,
-                "y": 1260
-            }
-        },
-        "C:/Users/amich/AppData/Local/Temp/Temp1_Pipoya RPG Tileset 32x32.zip/Pipoya RPG Tileset 32x32/SampleMap/samplemap.tmx#[Base]BaseChip_pipo": {
-            "scaleInDock": 1
-        },
-        "nature.tsx": {
+        "addwork.tsx": {
             "scaleInDock": 1,
             "scaleInEditor": 1
         },
         "test.tmx": {
-            "scale": 0.33,
-            "selectedLayer": 0,
+            "scale": 1.0380729166666667,
+            "selectedLayer": 1,
             "viewCenter": {
-                "x": 396.969696969697,
-                "y": 395.4545454545454
+                "x": 480.6984095128192,
+                "y": 320.3050524308866
             }
         }
     },
+    "last.imagePath": "C:/Users/amich/OneDrive/Bureau/Tower of the Arcane Realms/v5/Tower-of-arcane-realms-v3/carte",
+    "map.lastUsedFormat": "tmx",
     "openFiles": [
+        "test.tmx",
+        "addwork.tsx"
+    ],
+    "project": "test.tiled-project",
+    "recentFiles": [
+        "addwork.tsx",
         "test.tmx"
     ],
-    "recentFiles": [
-        "test.tmx",
-        "C:/Users/amich/AppData/Local/Temp/Temp1_Pipoya RPG Tileset 32x32.zip/Pipoya RPG Tileset 32x32/SampleMap/samplemap.tmx",
-        "nature.tsx"
-    ]
+    "tileset.lastUsedFormat": "tsx",
+    "tileset.useTransparentColor": true
 }
