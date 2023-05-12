@@ -61,6 +61,8 @@ class Game:
         elif pressed[pygame.K_RIGHT]:
             self.player.move_right()
             self.player.change_animation('left')
+        
+            
 
     def update(self):
     # Mise à jour du groupe Pyscroll et détection de collision avec les murs
@@ -91,6 +93,7 @@ class Game:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     running = False
+                    
                 # mouvement du joueur
                 if event.type == pygame.K_q:
                     self.player.move_right()
