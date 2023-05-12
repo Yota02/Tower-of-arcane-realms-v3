@@ -7,16 +7,20 @@
     "expandedProjectPaths": [
     ],
     "fileStates": {
+        "[A]Flower_pipo.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
         "addwork.tsx": {
             "scaleInDock": 1,
             "scaleInEditor": 1
         },
         "test.tmx": {
-            "scale": 1.0380729166666667,
+            "scale": 3,
             "selectedLayer": 1,
             "viewCenter": {
-                "x": 480.6984095128192,
-                "y": 320.3050524308866
+                "x": 626,
+                "y": 216.49999999999997
             }
         }
     },
@@ -24,10 +28,12 @@
     "map.lastUsedFormat": "tmx",
     "openFiles": [
         "test.tmx",
-        "addwork.tsx"
+        "addwork.tsx",
+        "[A]Flower_pipo.tsx"
     ],
     "project": "test.tiled-project",
     "recentFiles": [
+        "[A]Flower_pipo.tsx",
         "addwork.tsx",
         "test.tmx"
     ],
