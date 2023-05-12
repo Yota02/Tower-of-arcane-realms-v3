@@ -2,6 +2,8 @@ class Inventory:
     def __init__(self):
         self.capacity = 100  # Capacité maximale de l'inventaire
         self.items = []  # Liste des objets dans l'inventaire
+        self.image = self.get_image(0, 0)
+        self.image.set_colorkey([0, 0, 0])
 
     def ajouter_objet(self, objet):
         if len(self.objets) < self.capacite:  # Vérifier si l'inventaire est plein
