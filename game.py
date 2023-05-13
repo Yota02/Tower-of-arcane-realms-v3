@@ -61,13 +61,7 @@ class Game:
             self.player.move_right()
             self.player.change_animation('left')
         elif pressed[pygame.K_e]:
-            
-            screen_center_x = self.screen.get_rect().centerx
-            screen_center_y = self.screen.get_rect().centery
-            inventory_image_rect = self.inventory.image.get_rect()
-            inventory_image_rect.centerx = screen_center_x
-            inventory_image_rect.centery = screen_center_y
-            self.screen.blit(self.inventory.image, inventory_image_rect)
+            self.screen.blit(self.inventory.image, (0,0))
             
 
 
