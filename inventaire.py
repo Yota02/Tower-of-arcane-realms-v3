@@ -4,17 +4,8 @@ class Inventory:
     def __init__(self):
         self.capacity = 100  # Capacité maximale de l'inventaire
         self.items = []  # Liste des objets dans l'inventaire
-        self.image = self.get_image(0, 0)
-        self.image.set_colorkey([0, 0, 0])
-        self.sprite_sheet = pygame.image.load('sprites/player.png')
         
-    def get_image(self, x, y):
-        image = pygame.Surface([480,560])
-        image.blit(self.sprite_sheet, (0, 0), (x, y , 480,560))
-
-        return image
-
-
+        self.image = pygame.image.load('data_gama/inventaire/inventaire.png')
 
     def ajouter_objet(self, objet):
         if len(self.objets) < self.capacite:  # Vérifier si l'inventaire est plein

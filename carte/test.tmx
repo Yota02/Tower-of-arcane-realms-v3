@@ -2,7 +2,7 @@
 <map version="1.10" tiledversion="1.10.1" orientation="orthogonal" renderorder="right-down" width="30" height="20" tilewidth="32" tileheight="32" infinite="0" nextlayerid="5" nextobjectid="6">
  <tileset firstgid="1" source="addwork.tsx"/>
  <tileset firstgid="769" source="[A]Flower_pipo.tsx"/>
- <layer id="1" name="Calque de Tuiles 1" width="30" height="20" locked="1">
+ <layer id="1" name="Calque de Tuiles 1" width="30" height="20">
   <data encoding="csv">
 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
