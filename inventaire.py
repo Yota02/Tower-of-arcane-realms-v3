@@ -1,7 +1,11 @@
+import pygame
+
 class Inventory:
     def __init__(self):
         self.capacity = 100  # Capacité maximale de l'inventaire
         self.items = []  # Liste des objets dans l'inventaire
+        
+        self.image = pygame.image.load('data_gama/inventaire/inventaire.png')
 
     def ajouter_objet(self, objet):
         if len(self.objets) < self.capacite:  # Vérifier si l'inventaire est plein

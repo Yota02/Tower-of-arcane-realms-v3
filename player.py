@@ -7,7 +7,6 @@ class Player(pygame.sprite.Sprite):
         super().__init__()
 
         # Chargement de l'image du joueur depuis un fichier
-        super().__init__()
         try:
             self.sprite_sheet = pygame.image.load('sprites/player.png')
         except pygame.error as e:

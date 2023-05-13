@@ -14,14 +14,12 @@ class Game:
     # Initialisation de la fenêtre Pygame
         self.screen = pygame.display.set_mode((pygame.display.Info().current_w, pygame.display.Info().current_h ))
         pygame.display.set_caption("Tower of the Arcane Realms")
-
+        
     # Chargement de la carte Tiled avec PyTMX
         tmx_data = load_pygame('carte/test.tmx')
         map_data = pyscroll.data.TiledMapData(tmx_data)
         map_layer = pyscroll.orthographic.BufferedRenderer(map_data, self.screen.get_size())
         map_layer.zoom = 2
-
-        
 
     # Positionnement du joueur et du groupe Pyscroll
         player_position = tmx_data.get_object_by_name("spawn")
@@ -30,8 +28,7 @@ class Game:
     # Gestion du son
         self.sound_manager = Songmanager()
 
-
-        inventory = Inventory()
+        self.inventory = Inventory()
 
     # Initialisation du joueur
         self.player = Player(player_position.x, player_position.y)
@@ -44,25 +41,31 @@ class Game:
 
     # Création d'une liste de murs à partir des objets de la carte Tiled
         self.walls = []
+
         for obj in tmx_data.objects:
-            if obj.type == 'collision':
+            if obj.type == "collision":
                 self.walls.append(pygame.Rect(obj.x, obj.y, obj.width, obj.height))
 
     def handle_input(self):
     # Gestion des entrées clavier
         pressed = pygame.key.get_pressed()
-        if pressed[pygame.K_LEFT]:
+        if pressed[pygame.K_q]:
             self.player.move_left()
             self.player.change_animation('right')
-        elif pressed[pygame.K_DOWN]:
+        elif pressed[pygame.K_s]:
             self.player.change_animation('down')
             self.player.move_down()
-        elif pressed[pygame.K_UP]:
+        elif pressed[pygame.K_z]:
             self.player.change_animation('up')
             self.player.move_up()
-        elif pressed[pygame.K_RIGHT]:
+        elif pressed[pygame.K_d]:
             self.player.move_right()
             self.player.change_animation('left')
+        elif pressed[pygame.K_e]:
+            self.screen.blit(self.inventory.image, (0,0))
+            
+
+
 
     def update(self):
     # Mise à jour du groupe Pyscroll et détection de collision avec les murs
@@ -92,15 +95,6 @@ class Game:
         # Gestion des événements Pygame
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
-                    running = False
-                # mouvement du joueur
-                if event.type == pygame.K_q:
-                    self.player.move_right()
-                if event.type == pygame.K_d:
-                    self.player.move_left()
-                if event.type == pygame.K_z:
-                    self.player.move_up()
-                if event.type == pygame.K_s:
-                    self.player.move_down()       
+                    running = False     
 
             clock.tick(60)
