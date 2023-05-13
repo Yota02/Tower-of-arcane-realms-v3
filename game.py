@@ -2,6 +2,7 @@ import pygame
 import pytmx 
 from pytmx.util_pygame import load_pygame
 import pyscroll
+from map import MapManager
 from player import Player
 from song import Songmanager
 from item import Item
@@ -14,39 +15,16 @@ class Game:
     # Initialisation de la fenêtre Pygame
         self.screen = pygame.display.set_mode((pygame.display.Info().current_w, pygame.display.Info().current_h ))
         pygame.display.set_caption("Tower of the Arcane Realms")
-
-    # Chargement de la carte Tiled avec PyTMX
-        tmx_data = load_pygame('carte/test.tmx')
-        map_data = pyscroll.data.TiledMapData(tmx_data)
-        map_layer = pyscroll.orthographic.BufferedRenderer(map_data, self.screen.get_size())
-        map_layer.zoom = 2
-
-        
-
-    # Positionnement du joueur et du groupe Pyscroll
-        player_position = tmx_data.get_object_by_name("spawn")
-        self.group = pyscroll.PyscrollGroup(map_layer=map_layer, default_layer=3)
-
-    # Gestion du son
         self.sound_manager = Songmanager()
-
-
         inventory = Inventory()
-
-    # Initialisation du joueur
-        self.player = Player()
-        self.group.add(self.player)
-
-    # Variables de jeu
+        
         self.is_playing = True
         self.background = 1
         self.pressed = {}
 
-    # Création d'une liste de murs à partir des objets de la carte Tiled
-        self.walls = []
-        for obj in tmx_data.objects:
-            if obj.type == 'collision':
-                self.walls.append(pygame.Rect(obj.x, obj.y, obj.width, obj.height))
+        self.player = Player()
+        
+        self.mapmanager = MapManager(self.screen, self.player)
 
     def handle_input(self):
     # Gestion des entrées clavier
@@ -65,11 +43,8 @@ class Game:
             self.player.change_animation('left')
 
     def update(self):
-    # Mise à jour du groupe Pyscroll et détection de collision avec les murs
-        self.group.update()
-        for sprite in self.group.sprites():
-            if sprite.feet.collidelist(self.walls) > -1:
-                sprite.move_back()
+        self.mapmanager.update() 
+        
 
     def run(self):
     # Boucle de jeu principale
@@ -81,8 +56,9 @@ class Game:
             self.handle_input()
             self.update()
             #self.player.caracteristique()
-            self.group.center(self.player.rect)
-            self.group.draw(self.screen)
+            self.mapmanager.draw()
+            
+            
             pygame.display.flip()
 
         # Gestion du son en fonction du contexte
