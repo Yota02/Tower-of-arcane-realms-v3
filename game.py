@@ -41,8 +41,9 @@ class Game:
 
     # Création d'une liste de murs à partir des objets de la carte Tiled
         self.walls = []
+
         for obj in tmx_data.objects:
-            if obj.type == 'collision':
+            if obj.type == "collision":
                 self.walls.append(pygame.Rect(obj.x, obj.y, obj.width, obj.height))
 
     def handle_input(self):
