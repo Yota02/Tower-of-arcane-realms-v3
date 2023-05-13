@@ -2,14 +2,14 @@ import pygame
 import animation
 import json
 
-class Player(pygame.sprite.Sprite):
-    def __init__(self, x, y ) :
+class Entity(pygame.sprite.Sprite):
+    def __init__(self, name, x, y ) :
         super().__init__()
 
         # Chargement de l'image du joueur depuis un fichier
         super().__init__()
         try:
-            self.sprite_sheet = pygame.image.load('sprites/player.png')
+            self.sprite_sheet = pygame.image.load(f'sprites/{name}.png')
         except pygame.error as e:
             print(f"Erreur lors du chargement de l'image du joueur : {e}")
 
@@ -97,3 +97,14 @@ class Player(pygame.sprite.Sprite):
             }
             json.dump(character, file)
             file.close()
+            
+class Player(Entity):
+    
+    def __init__(self):
+        super().__init__("player", 0, 0)
+        
+        
+class PNJ(Entity):
+    
+    def __init__(self, name):
+        super().__init__(name, 0, 0)

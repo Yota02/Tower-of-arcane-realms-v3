@@ -34,7 +34,7 @@ class Game:
         inventory = Inventory()
 
     # Initialisation du joueur
-        self.player = Player(player_position.x, player_position.y)
+        self.player = Player()
         self.group.add(self.player)
 
     # Variables de jeu
