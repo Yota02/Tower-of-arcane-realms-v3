@@ -1,6 +1,6 @@
 import pygame 
 import pytmx 
-from pytmx.util_pygame import load_pygame
+
 import pyscroll
 from map import MapManager
 from player import Player
@@ -15,6 +15,7 @@ class Game:
     # Initialisation de la fenêtre Pygame
         self.screen = pygame.display.set_mode((pygame.display.Info().current_w, pygame.display.Info().current_h ))
         pygame.display.set_caption("Tower of the Arcane Realms")
+        
         self.sound_manager = Songmanager()
         inventory = Inventory()
         
@@ -25,6 +26,7 @@ class Game:
         self.player = Player()
         
         self.mapmanager = MapManager(self.screen, self.player)
+        
 
     def handle_input(self):
     # Gestion des entrées clavier
@@ -45,38 +47,30 @@ class Game:
     def update(self):
         self.mapmanager.update() 
         
-
+        
     def run(self):
-    # Boucle de jeu principale
+    
         clock = pygame.time.Clock()
         running = True 
         while running:
-        # Gestion des entrées clavier, mise à jour et affichage
+        
             self.player.save_location()
             self.handle_input()
             self.update()
-            #self.player.caracteristique()
+           
             self.mapmanager.draw()
             
             
             pygame.display.flip()
 
-        # Gestion du son en fonction du contexte
+        
             if self.background == 0:
                 self.sound_manager.play('Hub')            
 
-        # Gestion des événements Pygame
+        
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     running = False
-                # mouvement du joueur
-                if event.type == pygame.K_q:
-                    self.player.move_right()
-                if event.type == pygame.K_d:
-                    self.player.move_left()
-                if event.type == pygame.K_z:
-                    self.player.move_up()
-                if event.type == pygame.K_s:
-                    self.player.move_down()       
+                      
 
             clock.tick(60)
