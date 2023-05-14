@@ -51,16 +51,16 @@ class Game:
     def handle_input(self):
     # Gestion des entrées clavier
         pressed = pygame.key.get_pressed()
-        if pressed[pygame.K_LEFT]:
+        if pressed[pygame.K_q]:
             self.player.move_left()
             self.player.change_animation('right')
-        elif pressed[pygame.K_DOWN]:
+        elif pressed[pygame.K_s]:
             self.player.change_animation('down')
             self.player.move_down()
-        elif pressed[pygame.K_UP]:
+        elif pressed[pygame.K_z]:
             self.player.change_animation('up')
             self.player.move_up()
-        elif pressed[pygame.K_RIGHT]:
+        elif pressed[pygame.K_d]:
             self.player.move_right()
             self.player.change_animation('left')
 
